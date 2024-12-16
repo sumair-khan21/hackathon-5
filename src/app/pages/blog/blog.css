@@ -1,0 +1,81 @@
+.blog{
+    height: 100vh;
+}
+.blog-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+.food-img22{
+    width: 45vw;
+    position: relative;
+    overflow: hidden;
+}
+.food-img22 img{
+    width: 45vw;
+    object-fit: cover;
+    transition: .9s ease all;
+}
+.text-over11{
+    position: absolute; 
+  top: 2%;
+  left: 2%;  
+  background-color: #FF9F0D; 
+  color: aliceblue;
+  padding: 3px 13px;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "inter";
+  text-align: start;
+  display: none;
+  border-radius: 8px;
+}
+.with-texts .text-over11{
+    display: block; 
+}
+.admin-flex{
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    margin: 10px 27%;
+    cursor: pointer;
+}
+.Reasons{
+    margin-left: 27%;
+    font-family: "Helvetica";
+    font-size: 24px;
+    font-weight: 700;
+    color: #333333;
+}
+.vero{
+    font-family: "inter";
+    font-size: 16px;
+    font-weight: 400; 
+    width: 35vw;
+    margin-left: 27%;
+}
+.read{
+    margin-left: 27%;
+    border: 1px solid #FF9F0D;
+    padding:7px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #FF9F0D;
+    margin-top: 20px;
+}
+.read:hover{
+    margin-left: 27%;
+    border: 1px solid #FF9F0D;
+    padding:7px 40px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color:  #FF9F0D;
+    color: white;
+    margin-top: 20px;
+}
+.page{
+    text-align: center;
+    margin: 20px 0;
+    color: #FF9F0D;
+}

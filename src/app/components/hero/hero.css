@@ -1,0 +1,118 @@
+.background-img {
+    background-image: url('https://s3-alpha-sig.figma.com/img/69f6/ff94/1c3769a24e8d31903f241c62f7372678?Expires=1734307200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=E5kcyKCSqStjS~lIyBL7KsCVnQ5a1~Io436oTSQ3K7V65uCZj6vnu~jOfIA6nb9~~xTFhYZrL7K7mPaPKCgAchrSIWwICsrsegv8eCz0qZBph8ElnnNIuzYtWRP-0XKYmXoYYetaxHi57p4Cbp7NycwFB3PsHm14lndZSRyJBGhY-F9DvNZ3td52SpqyFLNG4rHJMzmjsVejjj0lItCkPyb0orLi2WN1GxlK9FlRSEYcizSZ64FiBFMF0egD9xSWDxF5QncKqaibL~dsgX-yosHivCY-UvJzu1J6~CFF0PPKhXz1nAsQ9qluqj6kA0-apk6D23UxDrHdmI1BpGUQ5g__');
+    background-size: cover;
+    background-position: center;
+    height: 105vh;
+    position: relative; 
+    background-color: rgba(0, 0, 0, 1);
+    z-index: 0;
+}
+.bg-color{
+    background-color: rgba(0, 0, 0, .9);
+    height: 105vh;
+}
+.hero-main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+.hero-ctn span{
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "inter";
+}
+.flex{
+    border: 1px solid #BC9A6C;
+    padding: 5px;
+    height: 37px;
+    width: 14vw;
+}
+.hero-img img{
+    width: 30vw;
+    height: 80vh;
+}
+.hero-ctn h1{
+    font-family: "Helvetica";
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 70px;
+    color: #BC9A6C;
+    width: 40vw;
+}
+.para{
+    font-family: "inter";
+    font-size: 16px;
+    font-weight: 400;
+    color: #FFFFFF;
+    width: 27vw;
+}
+.button1{
+    font-size: 16px;
+    font-family: "inter";
+    font-weight: 700;
+    padding: 15px 50px;
+    background-color: #BC9A6C;
+    color: #FFFFFF;
+
+}
+.button2{
+    font-size: 16px;
+    font-family: "inter";
+    font-weight: 700;
+    padding: 14px 49px;
+    color: #BC9A6C;
+    border: 1px solid #BC9A6C;
+    margin: 20px;
+}
+.button1:hover{
+    font-size: 16px;
+    font-family: "inter";
+    font-weight: 700;
+    padding: 14px 49px;
+    color: #BC9A6C;
+    background-color: transparent;
+    border: 1px solid #BC9A6C;
+}
+.button2:hover{
+    font-size: 16px;
+    font-family: "inter";
+    font-weight: 700;
+    padding: 14px 49px;
+    background-color: #BC9A6C;
+    color: #FFFFFF;
+}
+.boder{
+    padding-top: 30px;
+    padding-left: 30px;
+    border-top: 1px solid #BC9A6C; 
+    border-left: 1px solid #BC9A6C;
+}
+.coffee{
+    display: flex;
+    width: 80px;
+}
+.cfe1{
+    position: absolute;
+    top: 70px;
+    left: 600px;
+}
+.cfe2{
+    position: absolute;
+    top: 250px;
+    left: 500px;
+}
+.cfe3{
+    position: absolute;
+    top: 430px;
+    left: 700px;
+}
+.cfe4{
+    position: absolute;
+    top: 210px;
+    left: 700px;
+    z-index: 2;
+}
+.text-center img{
+    margin: auto;
+}

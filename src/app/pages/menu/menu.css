@@ -1,0 +1,152 @@
+.flex-menu{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100vh;
+}
+.dollar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 220px;
+}
+#oranges{
+    color: #FF9F0D; 
+}
+#hehe{
+   font-size: 24px;
+   font-weight: 700;
+   font-family: "Helvetica";
+   color: #FF9F0D;
+}
+.menu-ctn h2{
+    font-family: "Helvetica";
+    font-size: 48px;
+    font-weight: 700;
+}
+.menu-ctn h4{
+    font-family: "Helvetica";
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 45px;
+}
+.menu-ctn h5{
+    font-family: "Helvetica";
+    font-size: 16px;
+    font-weight: 400;
+    color: #4F4F4F;
+}
+.menu-ctn p{
+    font-family: "Helvetica";
+    font-size: 16px;
+    font-weight: 400;
+    color: #4F4F4F;
+}
+.menu-img img{
+    width: 25vw;
+    height: 80vh;
+}
+/* ----------------------------------------------------------------------------- */
+.stack-main{
+    margin: 0;
+  font-family: "Helvetica";
+  color: #fff;
+  height: 70vh;
+}
+  .stats-section {
+    position: relative; 
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-image: url('/stack.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 60vh; 
+    z-index: 0; 
+    overflow: hidden;
+  }
+  
+  .stats-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); 
+    z-index: -1; 
+  }
+  
+  .stat-item {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    z-index: 1; 
+  }
+  .stat-item h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px 0;
+  }
+  
+  .stat-item p {
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 20px;
+  }
+  
+
+  @media (max-width: 768px) {
+    .stats-section {
+      flex-direction: column;
+      text-align: center;
+    }
+    .stat-item {
+      margin-bottom: 20px;
+    }
+  }
+/* --------------------------------------------------------------------- */
+.menu-main{
+    text-align: center;
+    margin-top: 20px;
+    
+}
+.menu-main p{
+    font-family: "Helvetica";
+    font-size: 18px;
+    font-weight: 400;
+    color: #333333;
+}
+.menu-main h2{
+    font-family: "Helvetica";
+    font-size: 48px;
+    font-weight: 700;
+    color: #333333;
+}
+.flex-menu-items{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+.flex-menu-items img{
+    width: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
