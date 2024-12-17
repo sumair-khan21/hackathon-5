@@ -30,12 +30,12 @@ const toggleNavbar = () =>{
     <div className='hidden1 '>
         <div className='nav-items '>
           
-            <Link href="../" className="items" >Home</Link>
-            <Link href="../pages/menu" className="items">Menu</Link>
-            <Link href="../pages/blog" className="items">Blog</Link>
+            <Link href="/" className="items" >Home</Link>
+            <Link href="/menu" className="items">Menu</Link>
+            <Link href="/blog" className="items">Blog</Link>
             <Link href="#" className="items">Pages</Link>
-            <Link href="../pages/about" className="items">About</Link>
-            <Link href="../pages/shop" className="items">Shop</Link>
+            <Link href="/about" className="items">About</Link>
+            <Link href="/shop" className="items">Shop</Link>
             <Link href="#" className="items">Contact</Link>
          
         </div>
@@ -72,10 +72,10 @@ const toggleNavbar = () =>{
         <div className="mobile">
             <div  className='hide-div'>
            
-            <Link href="../" className="items">Home</Link>
-            <Link href="../pages/about" className="items">About</Link>
-            <Link href="../pages/services" className="items">Services</Link>
-            <Link href="..pages/contact" className="items">Contact</Link>
+            <Link href="/" className="items">Home</Link>
+            <Link href="about" className="items">About</Link>
+            <Link href="services" className="items">Services</Link>
+            <Link href="contact" className="items">Contact</Link>
            
             </div>
         </div>
