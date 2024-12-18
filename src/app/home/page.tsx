@@ -33,10 +33,10 @@ const toggleNavbar = () =>{
             <Link href="/" className="items" >Home</Link>
             <Link href="/menu" className="items">Menu</Link>
             <Link href="/blog" className="items">Blog</Link>
-            <Link href="#" className="items">Pages</Link>
+            <Link href="/FAQ" className="items">Pages</Link>
             <Link href="/about" className="items">About</Link>
             <Link href="/shop" className="items">Shop</Link>
-            <Link href="#" className="items">Contact</Link>
+            <Link href="/contact" className="items">Contact</Link>
          
         </div>
         
