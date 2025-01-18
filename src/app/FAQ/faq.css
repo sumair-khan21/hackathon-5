@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,15 +11,12 @@
     color: #333;
     line-height: 1.6;
   }
-  
-  /* Main Container */
   .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
   }
   
-  /* Heading Section */
   .heading {
     text-align: center;
     margin-bottom: 30px;
@@ -37,7 +34,7 @@
     font-size: 1rem;
   }
   
-  /* FAQ Grid */
+
   .faq-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -50,7 +47,6 @@
     }
   }
   
-  /* FAQ Item */
   .faq-item {
     background-color: #fff;
     border: 1px solid #e0e0e0;

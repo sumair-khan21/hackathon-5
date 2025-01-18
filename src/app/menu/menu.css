@@ -1,152 +1,223 @@
-.flex-menu{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 100vh;
+/* Base styles */
+.flex-menu {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+  flex-wrap: wrap; /* Wrap content on smaller screens */
+  gap: 20px; /* Add spacing between items */
 }
-.dollar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 220px;
+
+.dollar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px; /* Reduce gap for smaller screens */
 }
-#oranges{
-    color: #FF9F0D; 
+
+#oranges {
+  color: #FF9F0D; 
 }
-#hehe{
-   font-size: 24px;
-   font-weight: 700;
-   font-family: "Helvetica";
-   color: #FF9F0D;
+
+#hehe {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Helvetica";
+  color: #FF9F0D;
 }
-.menu-ctn h2{
-    font-family: "Helvetica";
-    font-size: 48px;
-    font-weight: 700;
+
+.menu-ctn h2 {
+  font-family: "Helvetica";
+  font-size: 48px;
+  font-weight: 700;
 }
-.menu-ctn h4{
-    font-family: "Helvetica";
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 45px;
+
+.menu-ctn h4 {
+  font-family: "Helvetica";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 45px;
 }
-.menu-ctn h5{
-    font-family: "Helvetica";
-    font-size: 16px;
-    font-weight: 400;
-    color: #4F4F4F;
+
+.menu-ctn h5 {
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: 400;
+  color: #4F4F4F;
 }
-.menu-ctn p{
-    font-family: "Helvetica";
-    font-size: 16px;
-    font-weight: 400;
-    color: #4F4F4F;
+
+.menu-ctn p {
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: 400;
+  color: #4F4F4F;
 }
-.menu-img img{
-    width: 25vw;
-    height: 80vh;
+
+.menu-img img {
+  width: 25vw;
+  height: 80vh;
+  object-fit: cover; /* Ensure image looks good in all sizes */
 }
-/* ----------------------------------------------------------------------------- */
-.stack-main{
-    margin: 0;
+
+/* Stack section */
+.stack-main {
+  margin: 0;
   font-family: "Helvetica";
   color: #fff;
   height: 70vh;
 }
-  .stats-section {
-    position: relative; 
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-image: url('/stack.png'); 
-    background-size: cover;
-    background-position: center;
-    height: 60vh; 
-    z-index: 0; 
-    overflow: hidden;
-  }
-  
-  .stats-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); 
-    z-index: -1; 
-  }
-  
-  .stat-item {
-    text-align: center;
-    font-size: 24px;
-    font-weight: 700;
-    z-index: 1; 
-  }
-  .stat-item h3 {
-    font-size: 20px;
-    font-weight: 700;
-    margin: 10px 0;
-  }
-  
-  .stat-item p {
-    font-size: 24px;
-    font-weight: bold;
-    margin-right: 20px;
-  }
-  
 
-  @media (max-width: 768px) {
-    .stats-section {
+.stats-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-image: url('/stack.png');
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.stats-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
+}
+
+.stat-item {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  z-index: 1;
+}
+
+.stat-item h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.stat-item p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Menu main section */
+.menu-main {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.menu-main p {
+  font-family: "Helvetica";
+  font-size: 18px;
+  font-weight: 400;
+  color: #333333;
+}
+
+.menu-main h2 {
+  font-family: "Helvetica";
+  font-size: 48px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.flex-menu-items {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.flex-menu-items img {
+  width: 100px;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+  .flex-menu {
+      flex-direction: column; /* Stack items vertically */
+      height: auto; /* Adjust height for smaller screens */
+  }
+
+  .menu-img img {
+      width: 90%; /* Make images smaller */
+      height: auto;
+  }
+
+  .menu-ctn h2 {
+      font-size: 36px;
+  }
+
+  .menu-ctn h4 {
+      font-size: 20px;
+  }
+
+  .menu-ctn h5, .menu-ctn p {
+      font-size: 14px;
+  }
+
+  .dollar {
+      gap: 10px; /* Reduce gap for smaller screens */
+  }
+
+  .stats-section {
       flex-direction: column;
       text-align: center;
-    }
-    .stat-item {
-      margin-bottom: 20px;
-    }
+      height: auto;
   }
-/* --------------------------------------------------------------------- */
-.menu-main{
-    text-align: center;
-    margin-top: 20px;
-    
-}
-.menu-main p{
-    font-family: "Helvetica";
-    font-size: 18px;
-    font-weight: 400;
-    color: #333333;
-}
-.menu-main h2{
-    font-family: "Helvetica";
-    font-size: 48px;
-    font-weight: 700;
-    color: #333333;
-}
-.flex-menu-items{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin: 20px 0;
-    flex-wrap: wrap;
-}
-.flex-menu-items img{
-    width: 100px;
+
+  .stat-item {
+      margin-bottom: 20px;
+  }
 }
 
+@media (max-width: 768px) {
+  .menu-img img {
+      width: 100%; /* Full width for smaller screens */
+  }
 
+  .flex-menu-items img {
+      width: 80px; /* Reduce size of partner logos */
+  }
 
+  .menu-ctn h2 {
+      font-size: 28px;
+  }
 
+  .menu-ctn h4 {
+      font-size: 18px;
+  }
+}
 
+@media (max-width: 480px) {
+  .menu-ctn h2 {
+      font-size: 24px;
+  }
 
+  .menu-ctn h4 {
+      font-size: 16px;
+  }
 
+  .menu-ctn h5, .menu-ctn p {
+      font-size: 12px;
+  }
 
+  .dollar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+  }
 
-
-
-
-
-
-
-
-
+  .flex-menu-items img {
+      width: 60px; /* Smaller logos for very small screens */
+  }
+}

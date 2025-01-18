@@ -1,81 +1,129 @@
-.blog{
+.blog {
     height: 100vh;
 }
-.blog-center{
+
+.blog-center {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 5%;
+    flex-wrap: wrap; /* Ensure it wraps on smaller screens */
 }
-.food-img22{
-    width: 45vw;
+
+.food-img22 {
+    width: 100%; /* Full width for smaller screens */
+    max-width: 45vw; /* Restrict max width */
     position: relative;
     overflow: hidden;
 }
-.food-img22 img{
-    width: 45vw;
+
+.food-img22 img {
+    width: 100%; /* Make image responsive */
     object-fit: cover;
-    transition: .9s ease all;
+    transition: 0.9s ease all;
 }
-.text-over11{
-    position: absolute; 
-  top: 2%;
-  left: 2%;  
-  background-color: #FF9F0D; 
-  color: aliceblue;
-  padding: 3px 13px;
-  font-size: 16px;
-  font-weight: 400;
-  font-family: "inter";
-  text-align: start;
-  display: none;
-  border-radius: 8px;
+
+.text-over11 {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    background-color: #FF9F0D;
+    color: aliceblue;
+    padding: 3px 13px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "inter";
+    text-align: start;
+    display: none;
+    border-radius: 8px;
 }
-.with-texts .text-over11{
-    display: block; 
+
+.with-texts .text-over11 {
+    display: block;
 }
-.admin-flex{
+
+.admin-flex {
     display: flex;
-    justify-content: start;
+    justify-content: center; /* Center align the content */
+    align-items: center; /* Vertically align items */
     gap: 10px;
-    margin: 10px 27%;
+    margin: 10px auto; /* Center the container */
+    width: fit-content; /* Adjust width to content */
     cursor: pointer;
+    text-align: center; /* Ensure text stays centered */
 }
-.Reasons{
-    margin-left: 27%;
+
+.Reasons, .vero, .read {
+    max-width: 45vw; /* Match width to the image */
+    margin: 10px auto; /* Center align */
     font-family: "Helvetica";
+    text-align: center; /* Center align text */
+}
+
+.Reasons {
     font-size: 24px;
     font-weight: 700;
     color: #333333;
 }
-.vero{
-    font-family: "inter";
+
+.vero {
     font-size: 16px;
-    font-weight: 400; 
-    width: 35vw;
-    margin-left: 27%;
+    font-weight: 400;
 }
-.read{
-    margin-left: 27%;
+
+.read {
     border: 1px solid #FF9F0D;
-    padding:7px 40px;
+    padding: 7px 40px;
     font-size: 16px;
     font-weight: bold;
     color: #FF9F0D;
-    margin-top: 20px;
+    display: block; /* Ensure it doesn't break */
+    text-align: center; /* Center align button */
 }
-.read:hover{
-    margin-left: 27%;
-    border: 1px solid #FF9F0D;
-    padding:7px 40px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color:  #FF9F0D;
+
+.read:hover {
+    background-color: #FF9F0D;
     color: white;
-    margin-top: 20px;
 }
-.page{
-    text-align: center;
-    margin: 20px 0;
-    color: #FF9F0D;
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .blog-center {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    .food-img22 {
+        width: 90%; /* Adjust width */
+        margin: 0 auto; /* Center align */
+    }
+
+    .Reasons, .vero, .read {
+        max-width: 90%; /* Adjust width to match smaller image width */
+        margin: 10px auto; /* Center align */
+        text-align: center; /* Align text center */
+    }
+
+    .admin-flex {
+        justify-content: center; /* Center align flex items */
+    }
+}
+
+@media (max-width: 480px) {
+    .text-over11 {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 2px 10px;
+    }
+
+    .Reasons {
+        font-size: 20px; /* Adjust heading size */
+    }
+
+    .vero {
+        font-size: 14px; /* Adjust paragraph font size */
+    }
+
+    .read {
+        font-size: 14px; /* Adjust button font size */
+        padding: 5px 30px;
+    }
 }
