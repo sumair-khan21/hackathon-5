@@ -1,127 +1,48 @@
-import Footer from '@/app/components/footer/page';
-import React from 'react';
-import "./blog.css";
-import Topbar from '@/app/components/topbar/page';
-import {
-    Pagination,
-    PaginationContent,
-    PaginationEllipsis,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
-  } from "@/components/ui/pagination"
-import Navbar from '@/app/components/navbar/page';
-const Blog = () => {
+import Image from "next/image"
+import {  ChevronRight } from 'lucide-react'
+import { Card } from "@/components/ui/card"
+import Link from "next/link"
+import BlogCard2 from "../components/BlogCard2"
+import BlogCard3 from "../components/BlogCard3"
+import BlogSidebar from "../components/Blogsidebar"
+
+export default function BlogCard() {
   return (
-    <>
-    <Navbar />
-    <Topbar />
-    <section className='blog'>
-        <div className="blog-center">
-    <div className="food-img22 with-texts">
-        <img src="blog-back1.png" alt="" />
-        <p className='text-over11'>14 <br /> <span>Feb</span></p>
+    <div className="min-h-screen bg-gray-50">
+      <div className="relative w-full h-[200px] sm:h-[300px] lg:h-[400px] bg-black mt-16">
+        <Image
+          src="/menubg.png"
+          alt="Menu Background"
+          layout="fill"
+          objectFit="cover"
+          priority
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4 px-4 text-center">
+          <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white">Blog List</h1>
+          <p className="text-sm sm:text-base text-white flex items-center space-x-2 group">
+          <Link href={"/"} ><span className="transition-colors duration-300">Home</span></Link>  
+            <ChevronRight size={16} className="text-white transition-colors duration-300 group-hover:text-orange-500" />
+            <span className="transition-colors duration-300 text-[#FF9F0D]">Blog</span>
+          </p>
         </div>
+      </div>
+
+      <div className="container mx-auto px-4 py-8 lg:py-16">
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex-1 space-y-8">
+            <Card className="overflow-hidden">
+            </Card>
+            <BlogCard2 />
+            <BlogCard3 />
+            <BlogCard3 />
+            <BlogCard3 />
+          </div>
+          <div className="w-full lg:w-1/3 xl:w-1/4">
+            <BlogSidebar />
+          </div>
         </div>
-        <div className="admin-flex">
-            <img src="/Calendar.png" alt="" />
-            <p>Feb 14 2025 /</p>
-            <img src="/Chats.png" alt="" />
-            <p>3 /</p>
-            <img src="/Admin.png" alt="" />
-            <p>Admin</p>
-        </div>
-        <h3 className='Reasons'>10 Reasons To Do A Digital Detox Challenge</h3>
-        <p className='vero'>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
-        <button className='read'>Read More</button>
-    </section>
-    <section className='blog'>
-        <div className="blog-center">
-    <div className="food-img22 with-texts">
-        <img src="blog-back2.png" alt="" />
-        <p className='text-over11'>14 <br /> <span>Feb</span></p>
-        </div>
-        </div>
-        <div className="admin-flex">
-            <img src="/Calendar.png" alt="" />
-            <p>Feb 14 2025 /</p>
-            <img src="/Chats.png" alt="" />
-            <p>3 /</p>
-            <img src="/Admin.png" alt="" />
-            <p>Admin</p>
-        </div>
-        <h3 className='Reasons'>Traditional Soft Pretzels with Sweet Beer Cheese</h3>
-        <p className='vero'>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
-        <button className='read'>Read More</button>
-    </section>
-    <section className='blog'>
-        <div className="blog-center">
-    <div className="food-img22 with-texts">
-        <img src="blog-back3.png" alt="" />
-        <p className='text-over11'>14 <br /> <span>Feb</span></p>
-        </div>
-        </div>
-        <div className="admin-flex">
-            <img src="/Calendar.png" alt="" />
-            <p>Feb 14 2025 /</p>
-            <img src="/Chats.png" alt="" />
-            <p>3 /</p>
-            <img src="/Admin.png" alt="" />
-            <p>Admin</p>
-        </div>
-        <h3 className='Reasons'>The Ultimate Hangover Burger: Egg in a Hole Burger</h3>
-        <p className='vero'>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
-        <button className='read'>Read More</button>
-    </section>
-    <section className='blog'>
-        <div className="blog-center">
-    <div className="food-img22 with-texts">
-        <img src="blog-back4.png" alt="" />
-        <p className='text-over11'>14 <br /> <span>Feb</span></p>
-        </div>
-        </div>
-        <div className="admin-flex">
-            <img src="/Calendar.png" alt="" />
-            <p>Feb 14 2025 /</p>
-            <img src="/Chats.png" alt="" />
-            <p>3 /</p>
-            <img src="/Admin.png" alt="" />
-            <p>Admin</p>
-        </div>
-        <h3 className='Reasons'>My Favorite Easy Black Pizza Toast Recipe</h3>
-        <p className='vero'>At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
-        <button className='read'>Read More</button>
-    </section>
-    <div className="page">
-    <Pagination>
-      <PaginationContent>
-        <PaginationItem>
-          <PaginationPrevious href="#" />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">1</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#" isActive>
-            2
-          </PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationLink href="#">3</PaginationLink>
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationEllipsis />
-        </PaginationItem>
-        <PaginationItem>
-          <PaginationNext href="#" />
-        </PaginationItem>
-      </PaginationContent>
-    </Pagination>
+      </div>
     </div>
-    <Footer />
-    </>
   )
 }
 
-export default Blog

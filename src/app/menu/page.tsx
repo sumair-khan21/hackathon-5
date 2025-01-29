@@ -1,196 +1,53 @@
-import React from 'react'
-import "./menu.css"
-import Footer from '@/app/components/footer/page'
-import Topbar from '@/app/components/topbar/page'
-import Navbar from '@/app/components/navbar/page'
-const Menu = () => {
+//src\app\menu\page.tsx
+import React from 'react';
+import Image from 'next/image';
+import { ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import MenuSection from '../components/Menu';
+import StatsSection from '../components/Client';
+import StarterMenu from '../components/StarterMenu';
+
+function MenuHero() {
   return (
-   <>
-   <Navbar />
-   <Topbar />
-   <div className="flex-menu">
-    <div className="menu-img">
-      <img src="/menu1.png" alt="" />
-    </div>
-    <div className="menu-ctn">
-      <img src="/Coffee.png" alt="" />
-      <h2>Starter Menu</h2>
-      <div className="dollar">
-      <h4>Alder Grilled Chinook Salmon</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Toasted French bread topped with romano, cheddar</h5>
-      <p>560 CAL</p>
-      <div className="dollar">
-      <h4 id='oranges'>Berries and creme tart</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Gorgonzola, ricotta, mozzarella, taleggio</h5>
-      <p>700 CAL</p>
-      <div className="dollar">
-      <h4>Tormentoso Bush Pizza Pintoage</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Ground cumin, avocados, peeled and cubed</h5>
-      <p>1000 CAL</p>
-      <div className="dollar">
-      <h4>Spicy Vegan Potato Curry</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Spreadable cream cheese, crumbled blue cheese</h5>
-      <p>560 CAL</p>
-    </div>
-   </div>
+    <>
+     
 
-{/* -------------------------------------------------------------------------------------- */}
+      <div className="relative w-full h-[410px] bg-black m-auto mt-16">
+        {/* Background Image */}
+        <Image
+          src={'/menubg.png'}
+          alt={'Menu Background'}
+          layout="fill"
+          objectFit="cover"
+          className="absolute top-0 left-0 w-full h-full"
+        />
 
-   <div className="flex-menu">
-    <div className="menu-ctn">
-      <img src="/Coffee.png" alt="" />
-      <h2>Main Course</h2>
-      <div className="dollar">
-      <h4>Optic Big Breakfast Combo Menu</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Toasted French bread topped with romano, cheddar</h5>
-      <p>560 CAL</p>
-      <div className="dollar">
-      <h4 id='oranges'>Cashew Chicken With Stir-Fry</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Gorgonzola, ricotta, mozzarella, taleggio</h5>
-      <p>700 CAL</p>
-      <div className="dollar">
-      <h4> Vegetables & Green Salad</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Ground cumin, avocados, peeled and cubed</h5>
-      <p>1000 CAL</p>
-      <div className="dollar">
-      <h4>Spicy Vegan Potato Curry</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Spreadable cream cheese, crumbled blue cheese</h5>
-      <p>560 CAL</p>
-    </div>
-    <div className="menu-img">
-      <img src="/mennu2.png" alt="" />
-    </div>
-   </div>
-   {/* ---------------------------------------------------------------------------- */}
+        {/* Heading on Top of Image */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4 px-4 sm:px-6 md:px-8">
+          {/* Heading */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center">
+            Our Menu
+          </h1>
 
+          {/* Paragraph with Hover Effect */}
+          <p className="text-sm sm:text-base text-white flex items-center space-x-2 group">
+          <Link href={"/"} ><span className="transition-colors duration-300">Home</span></Link>  
+            <ChevronRight
+              size={16}
+              className="text-white transition-colors duration-300 group-hover:text-orange-500"
+            />
+            <span className="transition-colors duration-300 text-[#FF9F0D]">Menu</span>
+          </p>
+        </div>
+      </div>
 
-   <section className='stack-main pt-14'>
-    <div className="stats-section">
-    <div className="stat-item">
-      <img src="/group1.png" alt="" />
-      <h3>Professional Chefs</h3>
-      <p>420</p>
-    </div>
-    <div className="stat-item">
-    <img src="/group2.png" alt="" />
-      <h3>Items Of Food</h3>
-      <p>320</p>
-    </div>
-    <div className="stat-item">
-    <img src="/group3.png" alt="" />
-    <h3>Years Of Experienced</h3>
-      <p>30+</p>
-    </div>
-    <div className="stat-item">
-    <img src="/group4.png" alt="" />
-      <h3>Happy Customers</h3>
-      <p>220</p>
-    </div>
-  </div>
-</section>
-{/* --------------------------------------------------------------------------- */}
-<div className="flex-menu">
-    <div className="menu-img">
-      <img src="/mennu3.png" alt="" />
-    </div>
-    <div className="menu-ctn">
-      <img src="/Coffee.png" alt="" />
-      <h2>Dessert</h2>
-      <div className="dollar">
-      <h4>Fig and lemon cake</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Toasted French bread topped with romano, cheddar</h5>
-      <p>560 CAL</p>
-      <div className="dollar">
-      <h4 id='oranges'>Creamy mascarpone cake</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Gorgonzola, ricotta, mozzarella, taleggio</h5>
-      <p>700 CAL</p>
-      <div className="dollar">
-      <h4>Pastry, blueberries, lemon juice</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Ground cumin, avocados, peeled and cubed</h5>
-      <p>1000 CAL</p>
-      <div className="dollar">
-      <h4>Pain au chocolat</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Spreadable cream cheese, crumbled blue cheese</h5>
-      <p>560 CAL</p>
-    </div>
-   </div>
-
-{/* -------------------------------------------------------------------------------------- */}
-
-   <div className="flex-menu">
-    <div className="menu-ctn">
-      <img src="/Coffee.png" alt="" />
-      <h2>Drinks</h2>
-      <div className="dollar">
-      <h4>Caffè macchiato</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Toasted French bread topped with romano, cheddar</h5>
-      <p>560 CAL</p>
-      <div className="dollar">
-      <h4 id='oranges'>Aperol Spritz Capacianno</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Gorgonzola, ricotta, mozzarella, taleggio</h5>
-      <p>700 CAL</p>
-      <div className="dollar">
-      <h4> Caffe Latte Campuri</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Ground cumin, avocados, peeled and cubed</h5>
-      <p>1000 CAL</p>
-      <div className="dollar">
-      <h4>Tormentoso BushTea Pintoage</h4>
-        <p id='hehe'>32$</p>
-      </div>
-      <h5>Spreadable cream cheese, crumbled blue cheese</h5>
-      <p>560 CAL</p>
-    </div>
-    <div className="menu-img">
-      <img src="/mennu4.png" alt="" />
-    </div>
-   </div>
-{/* ----------------------------------------------------------------------------------- */}
-<div className="menu-main">
-    <p>Partners & Clients</p>
-    <h2>We work with the best pepole</h2>
-</div>
-<div className="flex-menu-items">
-  <img src="/menu-items1.png" alt="" />
-  <img src="/menu-items2.png" alt="" />
-  <img src="/menu-items3.png" alt="" />
-  <img src="/menu-items4.png" alt="" />
-  <img src="/menu-items5.png" alt="" />
-  <img src="/menu-items6.png" alt="" />
-</div>
-<Footer  />
-
-   </>
-  )
+      <StarterMenu />
+      <MenuSection />
+      <StatsSection />
+      <StarterMenu />
+      <MenuSection />
+    </>
+  );
 }
 
-export default Menu
+export default MenuHero;

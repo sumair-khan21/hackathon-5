@@ -1,218 +1,202 @@
-import React from 'react'
-import Topbar from '../components/topbar/page'
-import Navbar from '../components/navbar/page' 
-import "./contact.css";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import Footer from '../components/footer/page';
+"use client";
 
-const Pages = () => {
+import * as React from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Mail, Lock, ChevronRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { Checkbox } from "@/components/ui/checkbox";
+
+export default function SignInForm() {
+  // State for form inputs
+  const [email, setEmail] = React.useState<string>("");
+  const [password, setPassword] = React.useState<string>("");
+  const [rememberMe, setRememberMe] = React.useState<boolean>(false);
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [error, setError] = React.useState<string | null>(null);
+
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Basic validation
+    if (!email || !password) {
+      setError("All fields are required.");
+      return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      setError("Please enter a valid email address.");
+      return;
+    }
+
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      // Simulate API call
+      const response = await fetch("/api/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password, rememberMe }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Sign in failed. Please check your credentials.");
+      }
+
+      const data = await response.json();
+      console.log("Sign in successful:", data);
+
+      // Redirect or show success message
+      alert("Sign in successful!");
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
-    <Navbar />
-    <Topbar />
-    <section>
-        <div className="pages-flex">
-            <div className="page01">
-            <div className="m-10">
+      <div className="relative w-full h-[410px] bg-black m-auto mt-16">
+        {/* Background Image */}
+        <Image
+          src={"/menubg.png"}
+          alt={"Menu Background"}
+          layout="fill"
+          objectFit="cover"
+          className="absolute top-0 left-0 w-full h-full"
+        />
 
-    <div className="flex items-start justify-between p-5">
-        <h3 className="text-xl font-semibold">
-            Shipping Address 
-        </h3>
-    </div>
+        {/* Heading on Top of Image */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4 px-4 sm:px-6 md:px-8">
+          {/* Heading */}
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white text-center">
+            Sign In 
+          </h1>
 
-    <div className="p-6 space-y-6">
-        <form action="#">
-            <div className="grid grid-cols-6 gap-6">
-                <div className="col-span-6 sm:col-span-3">
-                    <label className="text-sm font-medium text-gray-900 block mb-2">First Name</label>
-                    <input type="text" name="product-name" id="product-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm focus:ring-yellow-600 focus:border-yellow-600 block w-80 p-2.5"  />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                <label className="text-sm font-medium text-gray-900 block mb-2">Last Name</label>
-                <input type="text" name="product-name" id="product-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm focus:ring-yellow-600 focus:border-yellow-600 block w-80 p-2.5"  />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                    <label className="text-sm font-medium text-gray-900 block mb-2">Email Address</label>
-                    <input type="text" name="product-name" id="product-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm focus:ring-yellow-600 focus:border-yellow-600 block w-80 p-2.5"  />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                <label className="text-sm font-medium text-gray-900 block mb-2">Phone Number</label>
-                <input type="text" name="product-name" id="product-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm focus:ring-yellow-600 focus:border-yellow-600 block w-80 p-2.5"  />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                    <label className="text-sm font-medium text-gray-900 block mb-2">Company</label>
-                    <input type="text" name="product-name" id="product-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm focus:ring-yellow-600 focus:border-yellow-600 block w-80 p-2.5"  />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                <label className="text-sm font-medium text-gray-900 block mb-2">Country</label>
-                <Select>
-      <SelectTrigger className="w-[320px]">
-        <SelectValue placeholder="Choose country" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>North America</SelectLabel>
-          <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
-          <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
-          <SelectItem value="mst">Mountain Standard Time (MST)</SelectItem>
-          <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
-          <SelectItem value="akst">Alaska Standard Time (AKST)</SelectItem>
-          <SelectItem value="hst">Hawaii Standard Time (HST)</SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Europe & Africa</SelectLabel>
-          <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
-          <SelectItem value="cet">Central European Time (CET)</SelectItem>
-          <SelectItem value="eet">Eastern European Time (EET)</SelectItem>
-          <SelectItem value="west">
-            Western European Summer Time (WEST)
-          </SelectItem>
-          <SelectItem value="cat">Central Africa Time (CAT)</SelectItem>
-          <SelectItem value="eat">East Africa Time (EAT)</SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Asia</SelectLabel>
-          <SelectItem value="msk">Moscow Time (MSK)</SelectItem>
-          <SelectItem value="ist">India Standard Time (IST)</SelectItem>
-          <SelectItem value="cst_china">China Standard Time (CST)</SelectItem>
-          <SelectItem value="jst">Japan Standard Time (JST)</SelectItem>
-          <SelectItem value="kst">Korea Standard Time (KST)</SelectItem>
-          <SelectItem value="ist_indonesia">
-            Indonesia Central Standard Time (WITA)
-          </SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Australia & Pacific</SelectLabel>
-          <SelectItem value="awst">
-            Australian Western Standard Time (AWST)
-          </SelectItem>
-          <SelectItem value="acst">
-            Australian Central Standard Time (ACST)
-          </SelectItem>
-          <SelectItem value="aest">
-            Australian Eastern Standard Time (AEST)
-          </SelectItem>
-          <SelectItem value="nzst">New Zealand Standard Time (NZST)</SelectItem>
-          <SelectItem value="fjt">Fiji Time (FJT)</SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>South America</SelectLabel>
-          <SelectItem value="art">Argentina Time (ART)</SelectItem>
-          <SelectItem value="bot">Bolivia Time (BOT)</SelectItem>
-          <SelectItem value="brt">Brasilia Time (BRT)</SelectItem>
-          <SelectItem value="clt">Chile Standard Time (CLT)</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                    <label className="text-sm font-medium text-gray-900 block mb-2">Brand</label>
-                    <Select>
-      <SelectTrigger className="w-[320px]">
-        <SelectValue placeholder="Choose city" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>North America</SelectLabel>
-          <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
-          <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
-          <SelectItem value="mst">Mountain Standard Time (MST)</SelectItem>
-          <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
-          <SelectItem value="akst">Alaska Standard Time (AKST)</SelectItem>
-          <SelectItem value="hst">Hawaii Standard Time (HST)</SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Europe & Africa</SelectLabel>
-          <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
-          <SelectItem value="cet">Central European Time (CET)</SelectItem>
-          <SelectItem value="eet">Eastern European Time (EET)</SelectItem>
-          <SelectItem value="west">
-            Western European Summer Time (WEST)
-          </SelectItem>
-          <SelectItem value="cat">Central Africa Time (CAT)</SelectItem>
-          <SelectItem value="eat">East Africa Time (EAT)</SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Asia</SelectLabel>
-          <SelectItem value="msk">Moscow Time (MSK)</SelectItem>
-          <SelectItem value="ist">India Standard Time (IST)</SelectItem>
-          <SelectItem value="cst_china">China Standard Time (CST)</SelectItem>
-          <SelectItem value="jst">Japan Standard Time (JST)</SelectItem>
-          <SelectItem value="kst">Korea Standard Time (KST)</SelectItem>
-          <SelectItem value="ist_indonesia">
-            Indonesia Central Standard Time (WITA)
-          </SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>Australia & Pacific</SelectLabel>
-          <SelectItem value="awst">
-            Australian Western Standard Time (AWST)
-          </SelectItem>
-          <SelectItem value="acst">
-            Australian Central Standard Time (ACST)
-          </SelectItem>
-          <SelectItem value="aest">
-            Australian Eastern Standard Time (AEST)
-          </SelectItem>
-          <SelectItem value="nzst">New Zealand Standard Time (NZST)</SelectItem>
-          <SelectItem value="fjt">Fiji Time (FJT)</SelectItem>
-        </SelectGroup>
-        <SelectGroup>
-          <SelectLabel>South America</SelectLabel>
-          <SelectItem value="art">Argentina Time (ART)</SelectItem>
-          <SelectItem value="bot">Bolivia Time (BOT)</SelectItem>
-          <SelectItem value="brt">Brasilia Time (BRT)</SelectItem>
-          <SelectItem value="clt">Chile Standard Time (CLT)</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>       
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                    <label className="text-sm font-medium text-gray-900 block mb-2">Zip Code</label>
-                   <input type="text" name="product-name" id="product-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm focus:ring-yellow-600 focus:border-yellow-600 block w-80 p-2.5"  />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                    <label className="text-sm font-medium text-gray-900 block mb-2">Address 1</label>
-                    <input type="text" name="product-name" id="product-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm focus:ring-yellow-600 focus:border-yellow-600 block w-80 p-2.5"  />
-                </div>
-                <div className="col-span-6 sm:col-span-3">
-                <label className="text-sm font-medium text-gray-900 block mb-2">Address 1</label>
-                <input type="text" name="product-name" id="product-name" className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm focus:ring-yellow-600 focus:border-yellow-600 block w-80 p-2.5"  />
-                </div>
-            </div>
-            <div className="billing">
-               <h4>Billing Address</h4>
-               <input type="checkbox" /> <span>Same as shipping address</span>
-            </div>
-                <div className="flex py-4 ">
-              <div className="button1">
-                <button>Back to cart</button>
-              </div>
-              <div className="button222 ">
-                <button>Proceed to Shipping</button>
-              </div>
-                </div>
-        </form>
-    </div>
-</div>
-            </div>
-            {/* <div className="page02">
-
-            </div> */}
+          {/* Paragraph with Hover Effect */}
+          <p className="text-sm sm:text-base text-white flex items-center space-x-2 group">
+            <Link href={"/"}>
+              <span className="transition-colors duration-300">Home</span>
+            </Link>
+            <ChevronRight
+              size={16}
+              className="text-white transition-colors duration-300 group-hover:text-orange-500"
+            />
+            <span className="transition-colors duration-300 text-[#FF9F0D]">
+              Sign In
+            </span>
+          </p>
         </div>
-    </section>
-<Footer />
-    </>
-  )
-}
+      </div>
 
-export default Pages
+      <div className="min-h-screen flex items-center justify-center p-4 -mt-10">
+        <div className="w-full max-w-[424px] bg-white p-8 shadow-[0px_4px_80px_rgba(255,159,13,0.15)] rounded-sm">
+          <h2 className="text-2xl font-bold text-gray-800 mb-8">Sign In</h2>
+
+          {/* Display error message */}
+          {error && (
+            <div className="mb-4 p-2 bg-red-100 text-red-600 text-sm rounded">
+              {error}
+            </div>
+          )}
+
+          <form className="space-y-4" onSubmit={handleSubmit}>
+            <div className="relative">
+              <Input
+                type="email"
+                placeholder="Email"
+                className="pl-12 h-11 border-gray-200"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Mail className="absolute left-4 top-3 h-5 w-5 text-gray-600" />
+            </div>
+
+            <div className="relative">
+              <Input
+                type="password"
+                placeholder="Password"
+                className="pl-12 h-11 border-gray-200"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <Lock className="absolute left-4 top-3 h-5 w-5 text-gray-600" />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="remember"
+                  className="bg-[#FF9F0D] border-0"
+                  checked={rememberMe}
+                  onCheckedChange={(checked) =>
+                    setRememberMe(checked as boolean)
+                  }
+                />
+                <label
+                  htmlFor="remember"
+                  className="text-sm leading-none text-gray-800"
+                >
+                  Remember me?
+                </label>
+              </div>
+            </div>
+
+            <Button
+              type="submit"
+              className="w-full bg-[#FF9F0D] hover:bg-[#FF9F0D]/90 h-11"
+              disabled={isLoading}
+            >
+              {isLoading ? "Signing In..." : "Sign In"}
+            </Button>
+
+            <div className="text-right">
+              <a href="#" className="text-sm text-gray-400 hover:text-gray-600">
+                Forget password?
+              </a>
+            </div>
+
+            <div className="relative my-8">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-200"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-4 text-gray-600 bg-white border border-gray-200">
+                  OR
+                </span>
+              </div>
+            </div>
+
+            <Button variant="outline" className="w-full h-11 mb-3">
+              <Image
+                src="/google.jpeg"
+                alt="Google"
+                width={20}
+                height={20}
+                className="w-5 h-5 mr-2"
+              />
+              Sign in with Google
+            </Button>
+
+            <Button variant="outline" className="w-full h-11">
+              <Image
+                src="/apple.png"
+                alt="Apple"
+                width={20}
+                height={20}
+                className="w-5 h-5 mr-2"
+              />
+              Sign in with Apple
+            </Button>
+          </form>
+        </div>
+      </div>
+    </>
+  );
+}
