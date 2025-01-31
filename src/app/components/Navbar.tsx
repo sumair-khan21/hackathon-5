@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from 'react-use-cart';
 import { FaShoppingCart } from 'react-icons/fa';
+import Image from 'next/image';
 
 function Navbar() {
   const [isClick, setIsClick] = useState(false);
@@ -16,7 +17,7 @@ function Navbar() {
   return (
     <>
     
-   <nav className="bg-black z-50 fixed top-0 left-0 w-full shadow-lg">
+    <nav className="bg-black z-50 fixed top-0 left-0 w-full shadow-lg">
   <div className="text-center py-2">
     <Link href="/">
       <h1 className="text-white text-2xl font-bold font-serif">
@@ -60,7 +61,12 @@ function Navbar() {
             placeholder="Search..."
             className="border border-[#FF9F0D] bg-transparent text-white placeholder-white rounded-full px-3 py-1"
           />
-          <img src="/search.png" alt="Search" className="w-5 h-5" />
+          <Image
+            src="/search.png"
+            alt="Search"
+            width={20}
+            height={20}
+          />
         </div>
 
         {/* Cart Icon with Badge */}
@@ -141,6 +147,7 @@ function Navbar() {
     </div>
   )}
 </nav>
+
 
 
     </>

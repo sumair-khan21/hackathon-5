@@ -1,16 +1,13 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import { ChevronRight } from "lucide-react";
 import { groq } from "next-sanity";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-
-interface ChefPageProps {
-  params: { slug: string };
-}
+import { useParams } from "next/navigation";
 
 interface Chef {
   _id: string;
@@ -24,36 +21,47 @@ interface Chef {
   socialLinks: { platform: string; url: string }[] | null;
 }
 
-async function getChef(slug: string): Promise<Chef | null> {
-  return client.fetch(
-    groq`*[_type == "chef" && slug.current == $slug][0]{
-      _id,
-      name,
-      image,
-      bio,
-      position,
-      specialty,
-      available,
-      description,
-      socialLinks
-    }`,
-    { slug }
-  );
-}
 
-export default function ChefPage({ params }: ChefPageProps) {
-  const { slug } = params;
 
-  // Use async function directly inside the component
+export default function ChefPage() {
+
+  const { slug } = useParams<{ slug: string }>();
   const [chef, setChef] = useState<Chef | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchChef() {
-      const chefData = await getChef(slug);
-      setChef(chefData);
+      try {
+        const chefData = await client.fetch(
+          groq`*[_type == "chef" && slug.current == $slug][0]{
+            _id,
+            name,
+            image,
+            bio,
+            position,
+            specialty,
+            available,
+            description,
+            socialLinks
+          }`,
+          { slug }
+        );
+        setChef(chefData);
+      } catch (error) {
+        console.error("Error fetching chef:", error);
+      } finally {
+        setLoading(false);
+      }
     }
+
     fetchChef();
   }, [slug]);
+
+  console.log(chef)
+
+  if (loading) {
+    return <div className="text-center py-10">Loading...</div>;
+  }
 
   if (!chef) {
     return (
